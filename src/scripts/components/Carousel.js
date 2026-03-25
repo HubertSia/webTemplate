@@ -1,15 +1,15 @@
 import Swiper from 'swiper/bundle';
 
-/** Composante Carousel de Timtools */
+/** Composante Carousel of Timtools */
 export default class Carousel {
   /**
-   * Méthode constructeur
-   * @param {HTMLElement} element - Élément HTML sur lequel la composante est instanciée
+   * Contrutor method
+   * @param {HTMLElement} element - Elements of the HTML wiche the components is instanced
    */
   constructor(element) {
     this.element = element;
 
-    // Options par défaut pour la librairie Swiper
+    // Default option of the Swiper library https://swiperjs.com/get-started
     this.defaultOptions = {
       slidesPerView: 1,
       spaceBetween: 20,
@@ -23,13 +23,13 @@ export default class Carousel {
   }
 
   /**
-   * Méthode d'initialisation
+   * The initialized method
    */
   init() {
     let options = this.defaultOptions;
 
-    // Gestion des paramètres différents lorsqu'on veut avoir
-    // 2 slides visibles sur grand écran et une seule sur petit écran
+    // Parameters options if we want different style
+    // 2 visible slides in the big screen and one for small screen
     if (this.element.dataset.carousel == 'split') {
       options = {
         ...this.defaultOptions,
@@ -44,7 +44,7 @@ export default class Carousel {
       };
     }
 
-    // Instanciation d'un nouveau Swiper avec les options
+    // Instantiating a new Swiper with the options
     new Swiper(this.element, options);
   }
 }
